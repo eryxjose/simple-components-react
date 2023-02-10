@@ -8,11 +8,27 @@ function Accordion({ items }) {
     const isExpanded = index === expandedIndex;
 
     const handleClick = (nextIndex) => {
-        if (expandedIndex === nextIndex) {
-            setExpandedIndex(-1);
-        } else {
-            setExpandedIndex(nextIndex);
-        }
+        console.log('Valor obsoleto de expandedIndex', expandedIndex);
+
+        // Versão funcional Setter para bug de delay na 
+        // atualização de valores com Setter
+        setExpandedIndex((currentExpandedIndex) => {
+            console.log('Valor atualizado de expandedIndex', currentExpandedIndex);
+            if (currentExpandedIndex === nextIndex) {
+                return -1;
+            } else {
+                return nextIndex;
+            }
+        });
+
+        // Versão padrão usada 99% das vezes para 
+        // funcionalidade toggle:
+        //
+        // if (expandedIndex === nextIndex) {
+        //     setExpandedIndex(-1);
+        // } else {
+        //     setExpandedIndex(nextIndex);
+        // }
     };
 
     const icon = (
