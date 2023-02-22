@@ -1,8 +1,12 @@
+import Link from './components/Link';
 
 function App() {
 
   return (
-    <div></div>
+    <div>
+      <Link to="/accordion">Accordion</Link>
+      <Link to="/dropdown">Dropdown</Link>
+    </div>
   );
 }
 
