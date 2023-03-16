@@ -1,7 +1,58 @@
-# 
+# Custom Components React 
 
 
 
+
+
+
+
+# Sorting numbers
+
+    const data = [5, 1, 2, 10];
+    data.sorf(a, b) => {
+        return a - b;
+    }
+
+# Sorting strings
+
+    const data = ['t', 'A', 'a', 'B', 'b'];
+    data.sort(a, b) => {
+        return a.localeCompare(b);
+    }
+
+# Sorting objects
+
+    const data = [
+        { name: 'Batata', custo: 5, peso: 10 },
+        { name: 'Tomate', custo: 7, peso: 9 },
+        { name: 'Beringela', custo: 11, peso: 5 },
+    ];
+
+    function getSortValue(legume) {
+        return legume.custo
+    }
+
+    const sortOrder = 'asc';
+
+    data.sort(a, b) => {
+        const valueA = getSortValue(a);
+        const valueB = getSortValue(b);
+        
+        const reverseOrder = sortOrder === 'asc' ? 1 : -1;
+
+        if (typeof(valueA)  === 'string') {
+            return valueA.localeCompare(valueB) * reverseOrder;
+        } else {
+            return (valueA - valueB) * reverseOrder;
+        }
+    }
+
+
+
+
+
+
+...
 
 # Getting Started with Create React App
 

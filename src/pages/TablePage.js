@@ -1,10 +1,12 @@
 import Table from "../components/Table";
+import SortableTable from "../components/SortableTable";
 
 function TablePage() {
     const config = [
         { 
             label: 'Item',
-            render: (item) => item.name
+            render: (item) => item.name,
+            sortValue: (item) => item.name
         },
         { 
             label: 'Cor',
@@ -12,7 +14,8 @@ function TablePage() {
         },
         { 
             label: 'Ranking',
-            render: (item) => item.score
+            render: (item) => item.score,
+            sortValue: (item) => item.score
         },
     ];
 
@@ -30,7 +33,7 @@ function TablePage() {
 
     return (
         <div>
-            <Table data={data} config={config} keyFn={keyFn} />
+            <SortableTable data={data} config={config} keyFn={keyFn} />
         </div>
     );
 }
